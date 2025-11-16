@@ -2,6 +2,7 @@ import random
 
 import yfinance as yf
 import pandas as pd
+import utils as ut
 
 def get_return(ticker_name: str, length: str):
     sp500_index = yf.Ticker(ticker_name)
@@ -12,7 +13,7 @@ def get_return(ticker_name: str, length: str):
 if __name__ == "__main__":
     print("hello world")
     length = '1y'
-    sp500_tickers = pd.read_html("https://en.wikipedia.org/wiki/List_of_S%26P_500_companies")[0]["Symbol"].tolist()
+    sp500_tickers = ut.get_sp500_company_tickers()
     sp500 = get_return("^GSPC", length)
     print("^GSPC", sp500)
     count = 0
